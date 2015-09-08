@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <section>
+                    <h1>Stylesheet</h1>
+                    <ul>Was ist ein Stylesheet? Wo werden Styles definiert?</ul>
+                </section>
+                <section>
+                    <h3>Was ist ein Stylesheet?</h3>
+
+                    <ul>
+                        <li>Legt das Design einer Webseite fest</li>
+                        <li>Trennt Dateninhalte von der Anzeige</li>
+                        <li>Ermöglicht schnellere Änderung des Layouts</li>
+                        <li>Dynamische Anpassung an unterschiedliche Anzeigegräte</li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h3>CSS-Regeln in einer externen CSS-Datei</h3>
+                    <pre><code data-trim contenteditable>
+<head>
+  <!-- Andere HTML-Elemente -->
+  <link href="dateiname.css" rel="stylesheet" type="text/css" />
+</head>
+					</code></pre>
+                </section>
+                <section>
+                    <h3>Als HTML Element</h3>
+                    <pre><code data-trim contenteditable>
+<head>
+  <!-- Andere HTML-Elemente -->
+  <style type="text/css">
+    body { background-color: yellow; /* nur für diese Webseite */ }
+  </style>
+</head>
+					</code></pre>
+                </section>
+                <section>
+                    <h3>Als Attribut</h3>
+                    <pre><code data-trim contenteditable>
+<p style="background-color: #c0c0c0; color: red;">
+Rot auf grau!</p>
+					</code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Regeln</h1>
+                    <ul>Aufbau einer Regel? Selektoren? ID und class?
+                    </ul>
+                </section>
+                <section>
+                    <h3>Aufbau einer Regel?</h3>
+                    <pre><code data-trim contenteditable>
+h5.schrift {
+    margin: 0;
+    padding-left: 5%;
+    border: 0;
+    font-size: 60%;
+    text-align: left;
+}
+
+					</code></pre>
+
+                    <h5 class="schrift">Selektor</h5>
+                    <pre><code data-trim contenteditable>
+h5.schrift
+					</code></pre>
+                    <h5 class="schrift">Deklaration</h5>
+                    <pre><code data-trim contenteditable>
+                    margin: 0;
+    padding-left: 5%;
+    border: 0;
+    font-size: 60%;
+    text-align: left;
+					</code></pre>
+                </section>
+                <section>
+                    <h3>Aufbau einer Regel?</h3>
+                    <pre><code data-trim contenteditable>
+h5.schrift {
+    margin: 0;
+    padding-left: 5%;
+    border: 0;
+    font-size: 60%;
+    text-align: left;
+}
+
+					</code></pre>
+                    <h5 class="schrift">Eigenschaft</h5>
+                    <pre><code data-trim contenteditable>
+
+    padding-left:
+
+					</code></pre>
+                    <h5 class="schrift">Wert</h5>
+                    <pre><code data-trim contenteditable>
+5%;
+					</code></pre>
+                </section>
+
+                <section>
+                    <h3>ID und class?</h3>
+                    <h5 class="schrift">ID</h5>
+                    <pre><code data-trim contenteditable>
+<h5 id="einBestimmterText">Ein Text</h5>
+					</code></pre>
+                    <pre><code data-trim contenteditable>
+h5#einBestimmterText { ... }
+					</code></pre>
+                    <h5 class="schrift">class</h5>
+                    <pre><code data-trim contenteditable>
+<h5 class="schrift">class</h5>
+					</code></pre>
+                    <pre><code data-trim contenteditable>
+h5.schrift {
+    margin: 0;
+    padding-left: 5%;
+    border: 0;
+    font-size: 60%;
+    text-align: left;
+}
+					</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Vererbung</h1>
+                    <ul> Wie funktioniert die Vererbung in CSS? Was kann vererbt werden? Was nicht?</ul>
+                </section>
+                <section>
+                    <h3>Beispiel</h3>
+                    <h5 class="schrift">Mit Vererbung</h5>
+                    <pre><code data-trim contenteditable>
+                    body {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+					</code></pre>
+                    <h5 class="schrift">Ohne Vererbung</h5>
+                    <pre><code data-trim contenteditable>
+                    body, h1, h2, p, ul, li {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+					</code></pre>
+                </section>
+                <section>
+                    <h3>Was kann nicht vererbt werden?</h3>
+                    <ul>
+                        <li>Eigenschaften der Box Modelle</li>
+                        <li>padding, border und margin</li>
+                        <li>Eigenschaften für background</li>
+                        <li>width und height</li>
+                        <li>position, top, right, bottom, left</li>
+                        <li>float und clear</li>
+                        <li>display</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Vererbung erzwingen</h3>
+                    <pre><code data-trim contenteditable>
+h3 { text-align: inherit; }
+					</code></pre>
+                    <h3>Vererbung auflösen</h3>
+                    <pre><code data-trim contenteditable>
+h3 { text-align: initial; }
+					</code></pre>
+                </section>
+
+
+
+            </section>
+
+            <section>
+                <section>
+                    <h1>Spezifität</h1>
+                    <ul>Was versteht man unter Spezifität? !important?
+                    </ul>
+                </section>
+                <section>
+                    <h3>Was versteht man unter Spezifität?</h3>
+                    <table id="table_449" summary="Tabelle 6.1: Spezifität – das Punktesystem für Selektoren">
+
+                        <thead>
+                            <tr>
+                                <th class="head_0 col_first">Selektortyp</th>
+                                <th class="head_1">Beispiel</th>
+                                <th class="head_2 col_last">Punkte</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr class="row_1 odd">
+                                <tr class="row_0 row_first even">
+                                    <td class="col_0 col_first">einfacher Typ-Selektor</td>
+                                    <td class="col_1">p</td>
+                                    <td class="col_2 col_last">1</td>
+                                </tr>
+                                <td class="col_0 col_first">Klasse</td>
+                                <td class="col_1">.infobox</td>
+                                <td class="col_2 col_last">10</td>
+                            </tr>
+                            <tr class="row_2 even">
+                                <td class="col_0 col_first">Pseudoklasse</td>
+                                <td class="col_1">:visited</td>
+                                <td class="col_2 col_last">10</td>
+                            </tr>
+                            <tr class="row_3 odd">
+                                <td class="col_0 col_first">ID</td>
+                                <td class="col_1">#navibereich</td>
+                                <td class="col_2 col_last">100</td>
+                            </tr>
+                            <tr class="row_4 row_last even">
+                                <td class="col_0 col_first">Attribut style=""</td>
+                                <td class="col_1">style="color: red;"</td>
+                                <td class="col_2 col_last">1000</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </section>
+                <section>
+                    <h3>!important</h3>
+                    <pre><code data-trim contenteditable>
+                    h1 { color: red !important; }
+					</code></pre>
+                </section>
+            </section>
+
+
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: 'plugin/markdown/marked.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'plugin/markdown/markdown.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    condition: function () {
+                        return !!document.querySelector('pre code');
+                    },
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+                {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }
+				]
+        });
+    </script>
+
+</body>
+
+</html>
